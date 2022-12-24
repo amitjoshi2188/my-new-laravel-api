@@ -37,6 +37,9 @@ jobs:
       - run:
           name: "Generate App key"
           command: php artisan key:generate
+      - run:
+          name: "Install PDO"
+          command: sudo apt-get install php-pdo-sqlite
 
       - run:
           name: "Install sqlite"
