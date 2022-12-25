@@ -6,10 +6,23 @@ jobs:
     docker:
       # Specify the version you desire here
       - image: cimg/php:8.0.2-browsers
+      - image: circleci/mysql:5.7
+        environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_USER: root
+          MYSQL_ROOT_PASSWORD: ""
+          MYSQL_DATABASE: laravel
 
     steps:
       - browser-tools/install-browser-tools
       - checkout
+
+      - run:
+          name: Install PHP exts
+          command: |
+            sudo docker-php-ext-install zip
+            sudo docker-php-ext-install pdo_mysql
+            sudo apt install -y mysql-client
 
       - run:
           name: "Create Environment file and generate app key"
