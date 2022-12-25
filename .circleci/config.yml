@@ -6,11 +6,11 @@ jobs:
     docker:
       # Specify the version you desire here
       - image: cimg/php:8.0.2-browsers
-      - image: circleci/mysql:8.0.4
-        environment:
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_ROOT_PASSWORD: ""
-          MYSQL_DATABASE: laravel
+      # - image: circleci/mysql:8.0.4
+      #   environment:
+      #     MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      #     MYSQL_ROOT_PASSWORD: ""
+      #     MYSQL_DATABASE: laravel
 
     steps:
       - browser-tools/install-browser-tools
