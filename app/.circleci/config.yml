@@ -20,9 +20,11 @@ jobs:
       - run:
           name: Install PHP exts
           command: |
-            sudo docker-php-ext-install zip
-            sudo docker-php-ext-install pdo_mysql
-            sudo apt install -y mysql-client
+            sudo apt-get docker-php-ext-install zip
+            sudo apt-get docker-php-ext-configure intl
+            sudo apt-get docker-php-ext-install intl
+            sudo apt-get docker-php-ext-install pdo_mysql
+            sudo apt-get apt install -y mysql-client
 
       - run:
           name: "Create Environment file and generate app key"
